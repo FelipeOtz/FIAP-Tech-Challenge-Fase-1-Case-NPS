@@ -2,9 +2,9 @@
 
 ## 1. Objetivo do Projeto
 
-O crescimento acelerado do e-commerce nacional trouxe ganhos de escala, mas também desafios na experiência do cliente, refletidos na alta variabilidade do Net Promoter Score (NPS). Atualmente, o NPS é coletado apenas após a jornada de compra, limitando a proatividade da empresa.
-
 O objetivo principal deste projeto é transformar dados operacionais em insights acionáveis para o negócio. Buscamos compreender quais fatores operacionais (como logística, atendimento e pedidos) influenciam a satisfação do cliente, identificar os perfis de promotores e detratores, e propor recomendações estratégicas de melhoria. Adicionalmente, exploramos a criação de um modelo preditivo capaz de estimar o NPS antes da aplicação da pesquisa, permitindo que a empresa atue de forma preventiva.
+
+O crescimento acelerado do e-commerce nacional trouxe ganhos de escala, mas também desafios na experiência do cliente, refletidos na alta variabilidade do Net Promoter Score (NPS). Atualmente, o NPS é coletado apenas após a jornada de compra, limitando a proatividade da empresa.
 
 ---
 
@@ -74,15 +74,12 @@ A resolução do desafio foi dividida nas seguintes etapas, focando no pensament
 
 A incapacidade de agir preventivamente é a dor central identificada. No modelo tradicional de e-commerce, o monitoramento da satisfação ocorre via pesquisas pós-venda, o que cria um atraso informacional crítico. Quando um cliente responde à pesquisa de NPS demonstrando insatisfação por um atraso logístico ou um erro no pedido, ele já percorreu toda a jornada de frustração. O dano ao Customer Lifetime Value (LTV) já está em curso.
 
----
 
 ### A Importância Estratégica do NPS no E-commerce
 
 No contexto competitivo do varejo digital, o NPS atua como um indicador antecedente de saúde financeira. A lealdade do consumidor correlaciona-se diretamente com a redução do Custo de Aquisição de Cliente (CAC).
 
-Clientes satisfeitos não apenas retornam com maior frequência, mas também atuam como embaixadores da marca, gerando o marketing "boca a boca" que é o motor de crescimento mais eficiente do setor.
-
-Clientes promotores possuem maior recorrência. A detração interrompe o ciclo de receita por cliente.
+Clientes satisfeitos não apenas retornam com maior frequência, mas também atuam como embaixadores da marca, gerando o marketing "boca a boca" que é o motor de crescimento mais eficiente do setor. A detração interrompe o ciclo de receita por cliente.
 
 A análise estratégica revela que a detração interrompe o ciclo de receita por cliente de forma abrupta. Um detrator custa significativamente mais para ser reconquistado do que um promotor para ser mantido.
 
@@ -90,23 +87,21 @@ No Brasil, onde o faturamento do e-commerce atingiu R$ 160 bilhões no primeiro 
 
 ---
 
-### Áreas Beneficiadas pela Análise Preditiva
+### Áreas Beneficiadas pela Visão Preditiva
 
 A transformação do NPS em um modelo preditivo gera benefícios transversais em toda a organização, permitindo que diferentes departamentos ajam de forma coordenada:
 
 #### Logística
 
-O departamento pode realizar o ajuste dinâmico de rotas e prazos prometidos baseados em "pontos de ruptura" de atraso identificados pelo modelo.
+O departamento pode realizar o ajuste dinâmico de rotas e prazos prometidos baseados em "pontos de ruptura" de atraso identificados pelo modelo. Se os dados mostram que um atraso superior a dois dias em uma região específica invariavelmente gera detratores, a logística pode priorizar esses envios ou renegociar SLAs com transportadoras locais.
 
 #### Atendimento ao Cliente (Customer Service)
 
-A identificação precoce de clientes com alto risco de detração permite um contato preventivo.
+A identificação precoce de clientes com alto risco de detração permite um contato preventivo. O time de suporte pode oferecer soluções proativas, como descontos ou estornos parciais do frete, antes que o cliente sinta a necessidade de abrir uma reclamação formal. 
 
 #### Produto e Pricing
 
-O modelo auxilia na avaliação se a qualidade percebida do item ou o valor do frete compensam eventuais falhas logísticas.
-
-Para contextualizar o desempenho interno, a organização deve utilizar indicadores complementares de mercado.
+O modelo auxilia na avaliação se a qualidade percebida do item ou o valor do frete compensam eventuais falhas logísticas. Em categorias de alto valor agregado, como eletrônicos, a tolerância a falhas na entrega é sensivelmente menor, exigindo uma precificação que suporte uma logística de excelência.
 
 ---
 
@@ -144,13 +139,15 @@ Os clientes são categorizados em três grupos fundamentais:
 - Neutros (7-8): Clientes satisfeitos, mas sem engajamento emocional, vulneráveis a ofertas da concorrência.
 - Detratores (0-6): Clientes insatisfeitos que podem prejudicar a reputação da marca através de comentários negativos.
 
-A informação é coletada após o encerramento da jornada de compra, geralmente via e-mail ou SMS após a confirmação da entrega (last-mile delivery).
+A informação é coletada após o encerramento da jornada de compra, geralmente via e-mail ou SMS após a confirmação da entrega (last-mile delivery). Essa janela temporal é crítica: se coletada muito cedo, ignora falhas na entrega; se coletada muito tarde, o sentimento do cliente pode ter sido diluído por outras experiências.
 
 ---
 
 ### Riscos de Uso Inadequado e Armadilhas Estatísticas
 
-- Lagging Indicator e Ação Tardia
+- Lagging Indicator e Ação Tardia: Tratar o NPS como um indicador de tempo real é o principal risco. Como ele é coletado após o fato, o uso isolado
+pode levar a decisões tardias. O modelo preditivo deve atuar como uma
+antecipação deste sinal.
 - Viés de Seleção (Selection Bias)
 - Leakage (Vazamento de Informação)
 - Target Drift
