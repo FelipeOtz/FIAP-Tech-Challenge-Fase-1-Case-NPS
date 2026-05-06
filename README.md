@@ -57,7 +57,7 @@ Para garantir as boas práticas de organização do código, o projeto está est
 ```text
 ├── data/               # Diretório contendo os arquivos CSV (dados brutos e processados)
 ├── notebooks/          # Jupyter Notebooks com os códigos de EDA e modelagem, documentados e comentados
-├── reports/            # Material de apresentação gerencial (Slides em PDF/PPTX) e link para o vídeo
+├── reports/            # Material de apresentação gerencial (Slides em PPTX) e link para o vídeo
 ├── README.md           # Documentação principal do projeto
 └── requirements.txt    # Arquivo de requisitos para reproduzir o ambiente de análise.
 ```
@@ -143,6 +143,24 @@ A informação é coletada após o encerramento da jornada de compra, geralmente
 - Leakage (Vazamento de Informação): O uso de dados que não estariam disponíveis no momento da previsão. Por exemplo, incluir no treinamento do modelo se o cliente já respondeu à pesquisa ou se já recebeu um cupom de desculpas invalida a capacidade preditiva em produção, pois o modelo estaria "olhando o futuro".
 
 - Target Drift: A distribuição da satisfação pode mudar devido a fatores macroeconômicos ou mudanças na concorrência, sem que a definição da variável mude. Se o mercado brasileiro se tornar mais exigente em relação ao frete, o mesmo serviço que gerava nota 9 em 2023 pode gerar nota 7 em 2025
+
+### Estratégia de Categorização do NPS
+
+Embora a variável `nps_score` represente a nota de satisfação do cliente em uma escala de 0 a 10, durante a análise exploratória foi identificado que os valores estavam armazenados em formato contínuo (`float`), permitindo a existência de valores decimais, como por exemplo 8.7 ou 9.3.
+
+Para garantir consistência metodológica na classificação dos clientes e evitar perdas de informação decorrentes de arredondamentos artificiais, optou-se por não realizar qualquer arredondamento das notas.
+
+A categorização foi realizada respeitando os intervalos clássicos do Net Promoter Score (NPS), aplicados diretamente sobre os valores contínuos:
+
+- **Detrator:** notas menores que 7.0
+- **Neutro/Passivo:** notas maiores ou iguais a 7.0 e menores que 9.0
+- **Promotor:** notas maiores ou iguais a 9.0
+
+Dessa forma, exemplos como:
+
+- Nota **6.9** → Detrator
+- Nota **8.7** → Neutro/Passivo
+- Nota **9.1** → Promotor
 
 ---
 
