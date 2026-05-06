@@ -8,7 +8,23 @@ O objetivo principal deste projeto é transformar dados operacionais em insights
 
 ---
 
-## 2. Descrição da Base de Dados
+## 2. Escopo Adotado no Projeto
+
+Conforme os requisitos oficiais do Tech Challenge Fase 1, a proposta de desenvolvimento de um modelo preditivo para estimativa do NPS foi apresentada como uma etapa opcional, com objetivo de ampliar a maturidade analítica e técnica dos participantes, sem impacto negativo para aqueles que optassem por não implementá-la.
+
+Diante desse direcionamento, este projeto concentrou seus esforços nas etapas obrigatórias do desafio, priorizando:
+
+- Entendimento do negócio;
+- Definição da variável alvo (target);
+- Análise Exploratória dos Dados (EDA) com foco em negócio;
+- Identificação de padrões operacionais relacionados à satisfação do cliente;
+- Construção de recomendações estratégicas orientadas por dados.
+
+A decisão de não implementar modelos preditivos nesta fase foi intencional e alinhada ao escopo proposto pelo desafio, permitindo aprofundar a análise estratégica, o pensamento analítico e o storytelling com dados, que representam os principais objetivos de aprendizagem desta etapa.
+
+Como preparação para fases futuras, ao longo do documento também são apresentadas reflexões sobre possíveis abordagens preditivas que poderiam ser exploradas em uma evolução natural deste trabalho.
+
+## 3. Descrição da Base de Dados
 
 A base de dados utilizada consiste em um histórico de pedidos, entregas e interações com o atendimento ao cliente. As variáveis disponíveis (Dicionário de Dados) são:
 
@@ -34,7 +50,7 @@ A base de dados utilizada consiste em um histórico de pedidos, entregas e inter
 
 ---
 
-## 3. Estrutura do Repositório
+## 4. Estrutura do Repositório
 
 Para garantir as boas práticas de organização do código, o projeto está estruturado da seguinte maneira:
 
@@ -43,12 +59,12 @@ Para garantir as boas práticas de organização do código, o projeto está est
 ├── notebooks/          # Jupyter Notebooks com os códigos de EDA e modelagem, documentados e comentados
 ├── reports/            # Material de apresentação gerencial (Slides em PDF/PPTX) e link para o vídeo
 ├── README.md           # Documentação principal do projeto
-└── requirements.txt    # The requirements file for reproducing the analysis environment
+└── requirements.txt    # Arquivo de requisitos para reproduzir o ambiente de análise.
 ```
 
 ---
 
-## 4. Metodologia Utilizada
+## 5. Metodologia Utilizada
 
 A resolução do desafio foi dividida nas seguintes etapas, focando no pensamento analítico e no storytelling com dados.
 
@@ -74,7 +90,7 @@ No Brasil, onde o faturamento do e-commerce atingiu R$ 160 bilhões no primeiro 
 
 ---
 
-### Áreas Beneficiadas pela Visão Preditiva
+### Áreas Beneficiadas pela Análise Preditiva
 
 A transformação do NPS em um modelo preditivo gera benefícios transversais em toda a organização, permitindo que diferentes departamentos ajam de forma coordenada:
 
@@ -158,7 +174,7 @@ A análise exploratória conduzida via Python focou em identificar as raízes op
 
 ---
 
-## 5. Requisitos de Execução
+## 6. Requisitos de Execução
 
 1. Clonar o repositório.
 2. Instalar dependências: pandas, seaborn, matplotlib.
@@ -166,7 +182,7 @@ A análise exploratória conduzida via Python focou em identificar as raízes op
 
 ---
 
-## 6. Referencias
+## 7. Referencias
 
 - https://www.medallia.com/br/puntuacion-neta-del-promotor/
 - https://www.adtail.ag/post/estatisticas-ecommerce-webshoppers-2024-2025
