@@ -66,14 +66,11 @@ Para garantir as boas práticas de organização do código, o projeto está est
 
 ## 5. Metodologia Utilizada
 
-A resolução do desafio foi dividida nas seguintes etapas, focando no pensamento analítico e no storytelling com dados.
+A resolução do desafio foi dividida nas seguintes etapas, focando no pensamento analítico e no storytelling com dados:
 
----
-
-### Entendimento do Negócio: A Transição do NPS Reativo para o Preditivo
+### 5.1 Entendimento do Negócio: A Transição do NPS Reativo para o Preditivo
 
 A incapacidade de agir preventivamente é a dor central identificada. No modelo tradicional de e-commerce, o monitoramento da satisfação ocorre via pesquisas pós-venda, o que cria um atraso informacional crítico. Quando um cliente responde à pesquisa de NPS demonstrando insatisfação por um atraso logístico ou um erro no pedido, ele já percorreu toda a jornada de frustração. O dano ao Customer Lifetime Value (LTV) já está em curso.
-
 
 ### A Importância Estratégica do NPS no E-commerce
 
@@ -87,7 +84,7 @@ No Brasil, onde o faturamento do e-commerce atingiu R$ 160 bilhões no primeiro 
 
 ---
 
-### Áreas Beneficiadas pela Visão Preditiva
+### 5.2 Áreas Beneficiadas pela Visão Preditiva
 
 A transformação do NPS em um modelo preditivo gera benefícios transversais em toda a organização, permitindo que diferentes departamentos ajam de forma coordenada:
 
@@ -97,7 +94,7 @@ O departamento pode realizar o ajuste dinâmico de rotas e prazos prometidos bas
 
 #### Atendimento ao Cliente (Customer Service)
 
-A identificação precoce de clientes com alto risco de detração permite um contato preventivo. O time de suporte pode oferecer soluções proativas, como descontos ou estornos parciais do frete, antes que o cliente sinta a necessidade de abrir uma reclamação formal. 
+A identificação precoce de clientes com alto risco de detração permite um contato preventivo. O time de suporte pode oferecer soluções proativas, como descontos ou estornos parciais do frete, antes que o cliente sinta a necessidade de abrir uma reclamação formal.
 
 #### Produto e Pricing
 
@@ -105,11 +102,9 @@ O modelo auxilia na avaliação se a qualidade percebida do item ou o valor do f
 
 ---
 
-### Metas de Negócio vs. Metas Analíticas: Definindo a Régua do Sucesso
+### 5.3 Metas de Negócio vs. Metas Analíticas: Definindo a Régua do Sucesso
 
 Uma das distinções mais críticas em um projeto de ciência de dados é a separação entre o que o negócio deseja alcançar e como a equipe técnica medirá o progresso.
-
----
 
 ### Metas de Negócio e KPIs Estratégicos
 
@@ -123,15 +118,13 @@ As principais metas incluem:
 
 ---
 
-### Definição da Target
+### 5.4 Definição da Target
 
-No âmago da construção de uma solução de dados completa está a definição precisa da variável alvo (target). No projeto em questão, a variável alvo é o nps_score.
-
----
+No âmago da construção de uma solução de dados completa está a definição precisa da variável alvo (target). O target representa o fenômeno que o modelo tentará prever e deve refletir fielmente a dor de negócio original. No projeto em questão, a variável alvo é o nps_score.
 
 ### A Variável NPS_Score e seu Momento de Coleta
 
-O nps_score foi escolhido por ser a métrica padrão para medir a lealdade do consumidor.
+O nps_score foi escolhido por ser a métrica padrão para medir a lealdade do consumidor, correlacionando-se diretamente com o comportamento de compra futura. Ele funciona como o principal KPI de sucesso para a área de Experiência do Cliente. A coleta ocorre por meio da pergunta: "Em uma escala de 0 a 10, o quanto você recomendaria nossa empresa para um amigo ou colega?".
 
 Os clientes são categorizados em três grupos fundamentais:
 
@@ -141,26 +134,27 @@ Os clientes são categorizados em três grupos fundamentais:
 
 A informação é coletada após o encerramento da jornada de compra, geralmente via e-mail ou SMS após a confirmação da entrega (last-mile delivery). Essa janela temporal é crítica: se coletada muito cedo, ignora falhas na entrega; se coletada muito tarde, o sentimento do cliente pode ter sido diluído por outras experiências.
 
----
-
 ### Riscos de Uso Inadequado e Armadilhas Estatísticas
 
-- Lagging Indicator e Ação Tardia: Tratar o NPS como um indicador de tempo real é o principal risco. Como ele é coletado após o fato, o uso isolado
-pode levar a decisões tardias. O modelo preditivo deve atuar como uma
-antecipação deste sinal.
-- Viés de Seleção (Selection Bias)
-- Leakage (Vazamento de Informação)
-- Target Drift
+- Lagging Indicator e Ação Tardia: Tratar o NPS como um indicador de tempo real é o principal risco. Como ele é coletado após o fato, o uso isolado pode levar a decisões tardias. O modelo preditivo deve atuar como uma antecipação deste sinal.
+
+- Viés de Seleção (Selection Bias): Existe uma tendência natural onde apenas os clientes nos extremos da experiência (muito satisfeitos ou muito irritados) respondem à pesquisa. Isso pode levar o modelo a otimizar para padrões extremos, ignorando a "maioria silenciosa" de clientes neutros ou passivos.
+
+- Leakage (Vazamento de Informação): O uso de dados que não estariam disponíveis no momento da previsão. Por exemplo, incluir no treinamento do modelo se o cliente já respondeu à pesquisa ou se já recebeu um cupom de desculpas invalida a capacidade preditiva em produção, pois o modelo estaria "olhando o futuro".
+
+- Target Drift: A distribuição da satisfação pode mudar devido a fatores macroeconômicos ou mudanças na concorrência, sem que a definição da variável mude. Se o mercado brasileiro se tornar mais exigente em relação ao frete, o mesmo serviço que gerava nota 9 em 2023 pode gerar nota 7 em 2025
 
 ---
 
-### Análise Exploratória (EDA): Decifrando os Direcionadores da Detração
+### 5.5 Análise Exploratória (EDA): Decifrando os Direcionadores da Detração
 
-A análise exploratória conduzida via Python focou em identificar as raízes operacionais da insatisfação.
+A análise exploratória conduzida via Python focou em identificar as raízes operacionais da insatisfação. No contexto do e-commerce, os dados sugerem que a satisfação não é apenas uma função do produto, mas sim do cumprimento da promessa logística e da facilidade de resolução de problemas
 
 ---
 
 ### Fatores Críticos e Pontos de Ruptura
+
+Os dados operacionais revelam que o atraso na entrega é o fator mais corrosivo para a lealdade. Cerca de 69% dos consumidores são menos propensos a comprar novamente de um varejista se o item não chegar no prazo prometido. No entanto, a análise identifica "pontos de ruptura" específicos. Um atraso de um dia pode ser tolerado por um promotor antigo, mas o impacto na probabilidade de detração aumenta drasticamente a partir do terceiro dia de atraso, especialmente para novos clientes.
 
 | Variável Operacional      | Relação com o NPS_Score     | Insight de Negócio                                                                                   |
 | ------------------------- | --------------------------- | ---------------------------------------------------------------------------------------------------- |
