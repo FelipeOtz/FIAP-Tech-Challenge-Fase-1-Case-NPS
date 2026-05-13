@@ -186,7 +186,8 @@ Os dados operacionais revelam que o atraso na entrega é o fator mais corrosivo 
 ## 6. Requisitos de Execução
 
 1. Clonar o repositório.
-2. Instalar dependências: pandas, seaborn, matplotlib.
+2. Instalar dependências:
+```pip install -r requirements.txt```
 3. Executar o notebook principal em notebooks/.
 
 ---
